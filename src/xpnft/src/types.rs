@@ -5,8 +5,8 @@ use icrc_ledger_types::icrc1::account::{Account, Subaccount};
 use serde_derive::Deserialize;
 
 #[derive(CandidType, Deserialize)]
-pub struct InitArg{
-    pub tx_window: u16, // input should be in hours format
+pub struct InitArg {
+    pub tx_window: u16,       // input should be in hours format
     pub permitted_drift: u16, // input should be in minutes format
     pub name: String,
     pub symbol: String,
@@ -31,13 +31,13 @@ pub struct CollectionMetadata {
 }
 
 #[derive(CandidType)]
-pub struct Standard{
+pub struct Standard {
     pub name: String,
     pub url: String,
 }
 
 #[derive(CandidType, Deserialize)]
-pub struct TransferArgs{
+pub struct TransferArgs {
     pub spender_subaccount: Option<Subaccount>,
     pub from: Account,
     pub to: Account,
@@ -48,7 +48,7 @@ pub struct TransferArgs{
 }
 
 #[derive(CandidType, Deserialize)]
-pub struct ApprovalArgs{
+pub struct ApprovalArgs {
     pub from_subaccount: Option<Subaccount>,
     pub spender: Account,
     pub token_ids: Option<Vec<u128>>,
@@ -58,7 +58,7 @@ pub struct ApprovalArgs{
 }
 
 #[derive(CandidType, Deserialize)]
-pub struct MintArgs{
+pub struct MintArgs {
     pub id: u128,
     pub name: String,
     pub description: Option<String>,

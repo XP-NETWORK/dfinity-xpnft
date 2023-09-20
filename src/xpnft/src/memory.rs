@@ -1,6 +1,6 @@
+use crate::state::{Token, TransferLog, MEMORY_MANAGER};
 use ic_stable_structures::memory_manager::{MemoryId, VirtualMemory};
 use ic_stable_structures::{DefaultMemoryImpl, StableBTreeMap};
-use crate::state::{MEMORY_MANAGER, Token, TransferLog};
 
 // A memory for upgrades, where data from the heap can be serialized/deserialized.
 const UPGRADES: MemoryId = MemoryId::new(0);
@@ -28,6 +28,6 @@ pub fn init_stable_data() -> StableBTreeMap<u128, Token, Memory> {
     StableBTreeMap::init(get_token_stable_btree_memory())
 }
 
-pub fn init_transfer_stable_data() -> StableBTreeMap<u128, TransferLog, Memory>{
+pub fn init_transfer_stable_data() -> StableBTreeMap<u128, TransferLog, Memory> {
     StableBTreeMap::init(get_transfer_stable_btree_memory())
 }
