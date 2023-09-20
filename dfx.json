@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "canisters": {
+    "xpnft_icrc7_backend": {
+      "type": "motoko",
+      "main": "src/xpnft_icrc7_backend/main.mo"
+    },
+    "xpnft_icrc7_frontend": {
+      "type": "assets",
+      "source": [
+        "src/xpnft_icrc7_frontend/assets"
+      ],
+      "dependencies": [
+        "xpnft_icrc7_backend"
+      ]
+    }
+  },
+  "defaults": {
+    "build": {
+      "packtool": "",
+      "args": ""
+    }
+  },
+  "output_env_file": ".env"
+}
