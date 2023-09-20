@@ -47,3 +47,15 @@ pub fn icrc7_mint(arg: MintArgs) -> u128 {
         c.mint(&caller, token)
     })
 }
+
+
+#[update]
+#[candid_method(update)]
+pub fn icrc7_burn(token_id: u128) -> u128 {
+    let caller = ic_cdk::caller();
+
+    COLLECTION.with(|c| {
+        let mut c = c.borrow_mut();
+        c.burn(&caller, &token_id)
+    })
+}

@@ -288,6 +288,22 @@ impl Collection {
         id
     }
 
+    pub fn burn(&mut self, caller: &Principal, id: &u128) -> u128 {
+        let token = self.tokens.get(&id).unwrap_or_else(|| ic_cdk::trap("Invalid Token Id"));
+
+        let is_owner = token.owner == default_account(*caller);
+        let is_approved = token.approval_check(ic_cdk::api::time(), &default_account(*caller));
+
+        if !is_owner && !is_approved {
+            ic_cdk::trap("Unauthorized Caller")
+        }
+    
+        self.total_supply -= 1;
+        self.tokens.remove(id);
+        let id = self.get_tx_id();
+        id
+    }
+
     pub fn owner_of(&self, id: &u128) -> Account {
         match self.tokens.get(id) {
             None => ic_cdk::trap("Invalid Token Id"),
