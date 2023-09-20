@@ -1,18 +1,10 @@
 {
   "version": 1,
   "canisters": {
-    "xpnft_icrc7_backend": {
-      "type": "motoko",
-      "main": "src/xpnft_icrc7_backend/main.mo"
-    },
-    "xpnft_icrc7_frontend": {
-      "type": "assets",
-      "source": [
-        "src/xpnft_icrc7_frontend/assets"
-      ],
-      "dependencies": [
-        "xpnft_icrc7_backend"
-      ]
+    "xpnft": {
+      "type": "custom",
+      "candid": "src/icrc7/icrc7.did",
+      "wasm": "target/wasm32-unknown-unknown/release/icrc7.wasm.gz"
     }
   },
   "defaults": {
