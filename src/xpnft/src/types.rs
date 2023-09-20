@@ -64,4 +64,5 @@ pub struct MintArgs{
     pub description: Option<String>,
     pub image: Option<Vec<u8>>,
     pub to: Account,
+    pub xp_meta: Option<String>,
 }

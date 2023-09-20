@@ -36,7 +36,8 @@ pub fn icrc7_mint(arg: MintArgs) -> u128{
             description: arg.description,
             image: arg.image,
             owner,
-            approvals: Vec::new()
+            approvals: Vec::new(),
+            meta: arg.xp_meta,
         };
         c.mint(&caller, token)
     })
