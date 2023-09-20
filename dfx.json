@@ -3,7 +3,7 @@
   "canisters": {
     "xpnft": {
       "type": "custom",
-      "candid": "src/icrc7/icrc7.did",
+      "candid": "src/xpnft/icrc7.did",
       "wasm": "target/wasm32-unknown-unknown/release/icrc7.wasm.gz"
     }
   },
